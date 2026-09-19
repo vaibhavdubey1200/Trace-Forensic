@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trace Mission Control</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <a class="logo" href="#home"><span>T</span> TRACE</a>
+    <button class="explore">☰ Explore</button>
+    <nav>
+      <a href="#cases">Cases</a>
+      <a href="#evidence">Evidence</a>
+      <a href="#analysis">Analysis</a>
+      <a href="#ioc">IOCs</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#report">Reports</a>
+    </nav>
+    <button class="search">⌕</button>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="stars"></div>
+      <div class="hero-content">
+        <p class="label">TRACE MISSION CONTROL · LIVE</p>
+        <h1>See further.<br><em>Respond faster.</em></h1>
+        <p>One command centre for evidence, intelligence and every investigation decision.</p>
+        <button class="red-button" onclick="openModal('case-modal')">
+          Open a new case →
+        </button>
+      </div>
+    </section>
+
+    <section class="status-bar">
+      <b>MISSION STATUS</b>
+      <span>● ALL SYSTEMS OPERATIONAL</span>
+      <span>ACTIVE CASES <strong>24</strong></span>
+      <span>OBSERVED INDICATORS <strong>47</strong></span>
+    </section>
+
+    <section class="container overview">
+      <p class="label dark">AT A GLANCE</p>
+      <h2>The view from<br>mission control.</h2>
+
+      <div class="metrics">
+        <article><span>01</span><b>24</b><p>Active cases</p><small>3 new this week</small></article>
+        <article><span>02</span><b>1,284</b><p>Evidence objects</p><small>126 processed today</small></article>
+        <article><span>03</span><b>47</b><p>Suspicious indicators</p><small>8 need review</small></article>
+        <article><span>04</span><b>Moderate</b><p>Risk posture</p><small>6 open investigations</small></article>
+      </div>
+    </section>
+
+    <section id="cases" class="dark-section">
+      <div class="container section-heading">
+        <div>
+          <p class="label">INVESTIGATIONS</p>
+          <h2>Active case<br>telemetry.</h2>
+        </div>
+        <button class="outline-button" onclick="openModal('case-modal')">+ Create case</button>
+      </div>
+
+      <div class="container cards" id="case-list">
+        <article class="case-card critical">
+          <p class="tag">CRITICAL</p>
+          <h3>Unusual auth<br>activity</h3>
+          <p>CASE-2026-084 · Identity security</p>
+          <footer>UPDATED 14 MIN AGO <b>→</b></footer>
+        </article>
+
+        <article class="case-card elevated">
+          <p class="tag">ELEVATED</p>
+          <h3>Finance data<br>exfiltration</h3>
+          <p>CASE-2026-079 · Endpoint security</p>
+          <footer>UPDATED 2 HOURS AGO <b>→</b></footer>
+        </article>
+
+        <article class="case-card observed">
+          <p class="tag">OBSERVED</p>
+          <h3>Suspicious inbox<br>rule</h3>
+          <p>CASE-2026-072 · Email security</p>
+          <footer>UPDATED YESTERDAY <b>→</b></footer>
+        </article>
+      </div>
+    </section>
+
+    <section id="evidence" class="container two-column">
+      <div>
+        <p class="label dark">EVIDENCE VAULT</p>
+        <h2>Every signal.<br>Accounted for.</h2>
+        <p class="description">
+          Secure collection with a verifiable chain of custody from first sighting to final report.
+        </p>
+        <button class="red-button" onclick="openModal('upload-modal')">Upload evidence ↑</button>
+      </div>
+
+      <div class="evidence-table">
+        <header><b>RECENTLY COLLECTED</b><span>INTEGRITY</span></header>
+
+        <article>
+          <div><b>auth_events_sep18.json</b><small>JSON · 8.4 MB</small></div>
+          <code>a84f...e901</code><em>VERIFIED</em>
+        </article>
+
+        <article>
+          <div><b>workstation-image.E01</b><small>DISK IMAGE · 14.2 GB</small></div>
+          <code>5b11...2ca9</code><em class="processing">PROCESSING</em>
+        </article>
+
+        <article>
+          <div><b>message-source.eml</b><small>EMAIL · 26 KB</small></div>
+          <code>7d9e...61f0</code><em>VERIFIED</em>
+        </article>
+      </div>
+    </section>
+
+    <section id="analysis" class="analysis-section">
+      <div class="container">
+        <p class="label">ANALYSIS LAB</p>
+        <h2>Turn data into<br><em>direction.</em></h2>
+
+        <div class="analysis-content">
+          <div class="risk-circle"><span>68<small>RISK SIGNAL</small></span></div>
+
+          <div class="findings">
+            <p class="label">PRIORITY FINDINGS</p>
+
+            <article>
+              <b>01</b>
+              <div><h3>Encoded PowerShell command</h3><p>workstation-image.E01 · Execution</p></div>
+              <em>HIGH CONFIDENCE</em>
+            </article>
+
+            <article>
+              <b>02</b>
+              <div><h3>Unusual OAuth consent grant</h3><p>auth_events_sep18.json · Identity</p></div>
+              <em class="review">NEEDS REVIEW</em>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ioc" class="container ioc-section">
+      <p class="label dark">THREAT INTELLIGENCE</p>
+      <h2>Indicators in orbit.</h2>
+
+      <div class="ioc-grid">
+        <article><span>◎</span><p>IP ADDRESS</p><h3>185.220.101.34</h3><small>Tor exit node · Seen 3 times</small><b>HIGH</b></article>
+        <article><span>⌁</span><p>DOMAIN</p><h3>cdn-updates[.]net</h3><small>Newly registered · DNS request</small><b class="yellow">MEDIUM</b></article>
+        <article><span>#</span><p>SHA-256 HASH</p><h3>5c9b...7a10</h3><small>Known malware family · 11 detections</small><b>HIGH</b></article>
+      </div>
+    </section>
+
+    <section id="timeline" class="timeline-section">
+      <div class="container">
+        <p class="label dark">CASE-2026-084 · EVENT LOG</p>
+        <h2>A precise record<br>of what happened.</h2>
+
+        <div class="timeline">
+          <article><time>09:42<small>18 SEP</small></time><i></i><div><p>IDENTITY · DETECTION</p><h3>Impossible travel sign-in detected</h3><span>Authentication from Mumbai followed by Frankfurt, 12 minutes apart.</span></div></article>
+          <article><time>09:36<small>18 SEP</small></time><i></i><div><p>IDENTITY · EVENT</p><h3>New OAuth application consented</h3><span>User approved “Teams Calendar Sync” with Mail.Read access.</span></div></article>
+          <article><time>08:19<small>18 SEP</small></time><i></i><div><p>EVIDENCE · INGESTED</p><h3>Authentication logs uploaded</h3><span>Collected automatically from the identity telemetry connector.</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="report" class="report-section">
+      <div class="container">
+        <p class="label">CASE-2026-084 · INVESTIGATION REPORT</p>
+        <h2>Intelligence that<br>moves the mission.</h2>
+        <p>Review complete investigation findings, indicators and containment actions.</p>
+        <button class="red-button" id="download-report">Download report ↓</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="logo" href="#home"><span>T</span> TRACE</a>
+    <p>Secure investigation operations.<br>Built to find the signal.</p>
+    <small>© 2026 Trace Security · Privacy · Terms</small>
+  </footer>
+
+  <div class="modal-background" id="case-modal">
+    <form class="modal" id="case-form">
+      <button type="button" class="close">×</button>
+      <p class="label dark">NEW INVESTIGATION</p>
+      <h2>Create a case</h2>
+      <label>Case name<input id="case-name" required placeholder="Suspicious endpoint activity"></label>
+      <label>Category<select><option>Identity security</option><option>Endpoint security</option><option>Network security</option></select></label>
+      <button class="red-button">Create case →</button>
+    </form>
+  </div>
+
+  <div class="modal-background" id="upload-modal">
+    <form class="modal" id="upload-form">
+      <button type="button" class="close">×</button>
+      <p class="label dark">EVIDENCE VAULT</p>
+      <h2>Upload evidence</h2>
+      <label class="dropzone">↑<b>Choose a file or drag it here</b><small>Your file is hashed on upload</small><input type="file"></label>
+      <button class="red-button">Secure upload →</button>
+    </form>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
